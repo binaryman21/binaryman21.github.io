@@ -1,144 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/atom-one-dark.css" integrity="sha512-ZxXw8g6k/2xt71jeit7rmStZ3yKUHFN8GnQjBpv00YXyn5zJX5ju0AI1EA3ccePshyhC/b9FWQXXc7bcOpST/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/>
-    <script src="index.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/2e4e8a65cc.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
-    <!-- and it's easy to individually load additional languages -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
-    
-    <style>
-      a
-      {
-        
-        color: rgb(94, 218, 193);
-        text-decoration: none;
-        
-      }
-      a:visited
-      {
-        color: rgb(94, 218, 193);
-      }
-      /* mouse over link */
-      a:hover {
-        color: rgb(255, 255, 255);
-        
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Binary Man - Programación</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/atom-one-dark.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/>
+  <link rel="stylesheet" href="styles.css">
 
-      /* selected link */
-      a:active {
-        background-color: rgb(94, 218, 193);
-        color:black;
-      }
-
-      .link-activo
-      {
-        background-color: rgb(94, 218, 193);
-        color: rgb(49, 50, 50)
-      }
-      .link-activo:hover
-      {
-        background-color: rgb(94, 218, 193);
-        color: rgb(49, 50, 50)
-      }
-      h5:hover
-      {
-        background-color: rgb(34, 35, 35);
-      }
-
-    </style>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script defer src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+  <script defer src="index.js"></script>
 </head>
-  <body style = "background-color: rgb(10, 10, 10);">
-    <script>
-      hljs.addPlugin(new CopyButtonPlugin());
-    </script>
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Binary Man</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              
+<body>
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Binary Man</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Lenguajes</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tutoriales</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">C</a></li>
+              <li><a class="dropdown-item" href="#">Python</a></li>
+              <li><a class="dropdown-item" href="#">JavaScript</a></li>
             </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-12"><img src="binary.png" class="img-fluid w-100" alt="Logo de Binary Man"></div>
+    </div>
+    <div class="row">
+      <aside class="col-md-3 sidebar py-4">
+        <h4 class="text-center">Programación en C</h4>
+        <nav>
+          <a href="ejercicio_controlando_al_robot" class="sidebar-link active">Controlando al "Robot"</a>
+          <a href="memoria_dinamica_realloc/" class="sidebar-link">Memoria Dinámica: Realloc</a>
+        </nav>
+      </aside>
+
+      <main class="col-md-9 content p-4">
+        <section class="mb-5">
+          <h2 class="section-title">Controlando al "Robot" (Super integrador)</h2>
+        </section>
+
+        <section class="mb-4">
+          <h3 class="section-subtitle">Videotutorial</h3>
+          <div class="ratio ratio-16x9 small-video">
+            <iframe src="https://www.youtube.com/embed/GEBlqKcf8NI?si=uqRFOgHtDcjxAgsk" title="YouTube video player" allowfullscreen></iframe>
           </div>
-        </div>
-      </nav>
-    <div class="container text-center h-100">
-      <div class="row"><div class="col-12 bg-info" style="padding-left:0; padding-right: 0;margin-left: 0;"><img src="binary.png" class="img-responsive w-100" style="padding-left: 0;margin-left: 0;" alt="..."></div></div>
-        <div class="row align-items-start h-100">
-          <div class="col-3 h-100 p-0 sticky-top" style="color: rgb(94, 218, 193); background-color: rgb(25, 25, 25);border-left:1px solid rgb(50, 50, 50);border-right:1px solid rgb(50, 50, 50);">
-              <h4 class = "m-5">Programación en C</h4>
-              
-                <a  class = "m-0" href = "ejercicio_controlando_al_robot">
-                    <h5 class = "m-0 p-3 link-activo" style = "border-top: 1px solid rgb(49, 50, 50); border-bottom: 1px solid rgb(49, 50, 50);">
-                    Ejercicio: Controlando al "Robot" (Super integrador)
-                    </h5>
-                </a>
-                <a  class = "m-0" href = "memoria_dinamica_realloc/">
-                  <h5 class = "m-0 p-3" style = "border-top: 1px solid rgb(49, 50, 50); border-bottom: 1px solid rgb(49, 50, 50);">
-                  Ejercicio: Memoria dinamica: Realloc"
-                  </h5>
-              </a>  
-      
-           
-          </div>
-          <div class="col-9 bg-dark h-100 p-0">
-            <h2 class = "text-light mt-5">Ejercicio: Controlando al "Robot" (Super integrador)</h2>
-            <h3 class = "text-light mt-5">Videotutorial del ejercicio</h3>
-            <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/GEBlqKcf8NI?si=uqRFOgHtDcjxAgsk" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen>
-          </iframe>
-            <h3 class = "text-light mt-5">Código completo del ejercicio</h3>
-            <div class = "position-relative" >
-              
-              <pre  id = "pre" class="atom-one-dark text-sm text-start overflow-hidden bg-dark" style = "height: 500px;">
-                <code id = "ejPunterosRobot">
-                </code>
-              </pre> 
-              <div class = "w-100 position-absolute bottom-0 end-0" style = "background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0)); height: 100px;">
-                <button type="button" class="btn btn-dark position-absolute bottom-0 end-0 p-1 m-2" ><a href = "code_ex/C/ejPunterosRobot.c" download><i class="fa-solid fa-download fa-lg"></i></a></button>
-              </div>
-              
+        </section>
+
+        <section>
+          <h3 class="section-subtitle">Código completo</h3>
+          <div class="code-container position-relative">
+            <pre><code id="ejPunterosRobot" class="language-c"></code></pre>
+            <div class="code-footer">
+              <a href="code_ex/C/ejPunterosRobot.c" download class="btn btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
             </div>
           </div>
-   
-        </div>
-          </div>
-        </div>
-      </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
 </html>

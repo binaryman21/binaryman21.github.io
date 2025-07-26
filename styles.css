@@ -1,0 +1,151 @@
+:root {
+  --bg-main: rgb(10, 10, 10);
+  --bg-sidebar: rgb(25, 25, 25);
+  --border-sidebar: rgb(50, 50, 50);
+  --accent: rgb(94, 218, 193);
+  --accent-hover: rgb(150, 255, 230);
+  --text-light: #f0f0f0;
+  --text-muted: #cccccc;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-light);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+.sidebar {
+  background-color: var(--bg-sidebar);
+  border-left: 1px solid var(--border-sidebar);
+  border-right: 1px solid var(--border-sidebar);
+}
+
+.sidebar h4 {
+  color: var(--accent);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border-sidebar);
+  border-bottom: 1px solid var(--border-sidebar);
+  color: var(--accent);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.sidebar-link:hover {
+  background-color: rgba(94, 218, 193, 0.1);
+  color: var(--accent-hover);
+}
+
+.sidebar-link.active {
+  background-color: var(--accent);
+  color: black;
+  font-weight: bold;
+}
+
+.section-title {
+  color: var(--accent);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px black;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.small-video {
+  max-width: 720px;
+  margin: auto;
+  border: 1px solid var(--border-sidebar);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(94, 218, 193, 0.2);
+}
+
+.code-container {
+  background-color: #1e1e1e;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 1rem;
+  max-height: 500px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.code-container pre {
+  margin: 0;
+  padding: 1rem;
+  overflow: auto;
+  font-size: 0.9rem;
+}
+
+.code-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(to top, var(--bg-main), transparent);
+  padding: 0.5rem;
+}
+
+.btn-download {
+  background-color: var(--bg-sidebar);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.btn-download:hover {
+  background-color: var(--accent);
+  color: black;
+}
+
+html {
+  font-size: 17px; /* antes: 16px */
+}
+
+body {
+  font-size: 1rem; /* equivale a 17px base */
+  line-height: 1.6;
+}
+
+/* Títulos más grandes */
+.section-title {
+  font-size: 1.8rem; /* antes 1.6rem */
+  margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+  font-size: 1.3rem; /* antes 1.2rem */
+  margin-bottom: 1rem;
+}
+
+/* Sidebar links más legibles */
+.sidebar-link {
+  font-size: 1rem; /* antes 0.95rem */
+  padding: 0.9rem 1.1rem;
+}
+
+/* Código más grande */
+.code-container pre {
+  font-size: 1rem; /* antes 0.9rem */
+}
+
