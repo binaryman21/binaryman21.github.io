@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Simulador Binario con Lamparitas</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    margin: 0;
+    padding: 30px;
+  }
+
+  header img { width:120px; margin-bottom:10px; }
+  h1 { font-size:2.4rem; margin:5px 0; }
+  h2 { font-weight:normal; color:#cbd5e1; margin-bottom:35px; }
+
+  /* ===== CARDS ===== */
+  .cards { max-width:1100px; margin:0 auto 40px auto; }
+  .card { background:rgba(255,255,255,0.06); border-radius:18px; padding:26px;
+          box-shadow:0 12px 30px rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.08); text-align:left; }
+  .card-wide { margin-bottom:25px; }
+  .card-row { display:flex; flex-wrap:wrap; gap:22px; }
+  .card-row .card { flex:1 1 320px; }
+
+  .badge { display:inline-block; font-size:13px; padding:5px 12px; border-radius:20px; margin-bottom:12px; font-weight:bold; }
+  .badge.info{background:#2563eb;} .badge.definition{background:#059669;} .badge.concept{background:#7c3aed;}
+
+  /* ===== CONTROLES ===== */
+  .controls { margin:35px 0; }
+  input[type="number"] { width:90px; padding:12px; font-size:20px; border-radius:10px; border:none; text-align:center; }
+  button { padding:12px 22px; font-size:20px; border-radius:10px; border:none; margin-left:12px; cursor:pointer;
+           background:#38bdf8; color:#0f172a; font-weight:bold; }
+  button:hover { background:#0ea5e9; transform:scale(1.05); }
+
+  /* ===== TABLERO TIPO TABLA ===== */
+  .simulator {
+    display:flex;
+    justify-content:center;
+    margin-top:30px;
+    gap:15px;
+  }
+
+  .labels {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    font-weight:bold;
+    color:#94a3b8;
+    text-align:right;
+    padding-right:10px;
+  }
+
+  .labels div { height:110px; display:flex; align-items:center; justify-content:flex-end; }
+
+  #board {
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+
+  .column {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-width:95px;
+    cursor:pointer;
+  }
+
+  .lamp { font-size:95px; filter:grayscale(100%) brightness(60%); transition:.2s; }
+  .lamp.on { filter:drop-shadow(0 0 22px gold) brightness(130%) saturate(160%); }
+
+  .bit { font-size:42px; font-weight:bold; margin-top:10px; }      /* MÁS GRANDE */
+  .weight { font-size:30px; color:#facc15; margin-top:10px; }      /* MÁS GRANDE */
+  .power { font-size:18px; color:#94a3b8; margin-top:8px; }
+
+  #decimalValue { margin-top:40px; font-size:32px; font-weight:bold; background:rgba(255,255,255,0.08); padding:16px 28px; border-radius:14px; display:inline-block; }
+  #detailValue { margin-top:18px; font-size:26px; font-weight:600; color:#e2e8f0; }
+
+  footer { margin-top:70px; font-size:14px; color:#94a3b8; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://via.placeholder.com/120x120.png?text=LOGO">
+  <h1>Lorem Ipsum University</h1>
+  <h2>Curso de Verano — Introducción al Sistema Binario</h2>
+</header>
+
+<div class="controls">
+  Cantidad de bits:
+  <input type="number" id="bitCount" min="1" max="16" value="4">
+  <button onclick="createLamps()">Crear</button>
+</div>
+
+<div class="simulator">
+  <div class="labels">
+    <div>Bombilla</div>
+    <div>Bit</div>
+    <div>Peso</div>
+    <div>Potencia</div>
+  </div>
+
+  <div id="board"></div>
+</div>
+
+<div id="decimalValue">Valor decimal: 0</div>
+<div id="detailValue">Suma de pesos activos: 0</div>
+
+<footer>Docentes: Lorem Ipsum · Dolor Sit Amet · Consectetur Adipiscing</footer>
+
+<script>
+let states = [];
+
+function createLamps() {
+  const count = parseInt(document.getElementById("bitCount").value);
+  const board = document.getElementById("board");
+
+  board.innerHTML = "";
+  states = new Array(count).fill(0);
+
+  for (let i = 0; i < count; i++) {
+    const column = document.createElement("div");
+    column.className = "column";
+
+    const lamp = document.createElement("div");
+    lamp.className = "lamp";
+    lamp.innerHTML = "💡";
+
+    const bit = document.createElement("div");
+    bit.className = "bit";
+    bit.textContent = "0";
+
+    const weight = document.createElement("div");
+    weight.className = "weight";
+    weight.textContent = Math.pow(2, count - i - 1);
+
+    const power = document.createElement("div");
+    power.className = "power";
+    power.textContent = "2^" + (count - i - 1);
+
+    column.onclick = () => toggleLamp(i, lamp, bit);
+
+    column.appendChild(lamp);
+    column.appendChild(bit);
+    column.appendChild(weight);
+    column.appendChild(power);
+    board.appendChild(column);
+  }
+
+  updateDecimal();
+}
+
+function toggleLamp(index, lampEl, bitEl) {
+  states[index] = states[index] === 0 ? 1 : 0;
+  lampEl.classList.toggle("on", states[index] === 1);
+  bitEl.textContent = states[index];
+  updateDecimal();
+}
+
+function updateDecimal() {
+  let value = 0;
+  let power = states.length - 1;
+  let detailParts = [];
+
+  for (let i = 0; i < states.length; i++) {
+    let weight = Math.pow(2, power - i);
+    if (states[i] === 1) {
+      value += weight;
+      detailParts.push(weight);
+    }
+  }
+
+  document.getElementById("decimalValue").textContent = "Valor decimal: " + value;
+  document.getElementById("detailValue").textContent =
+    detailParts.length > 0
+      ? "Suma de pesos activos: " + detailParts.join(" + ") + " = " + value
+      : "Suma de pesos activos: 0";
+}
+
+createLamps();
+</script>
+
+</body>
+</html>
